@@ -1,0 +1,42 @@
+﻿# Environments
+.env
+.env.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Data
+data/
+*.db
+*.sqlite
+*.sqlite3
+downloads/
+uploads/
+
+# Docker
+*.log
+docker-compose.override.yml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.DS_Store
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

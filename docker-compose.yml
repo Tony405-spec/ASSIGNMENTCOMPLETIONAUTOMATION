@@ -1,0 +1,69 @@
+﻿version: '3.8'
+
+services:
+  ai-service:
+    build: ./ai-service
+    image: tonykenga405/assignment-ai-service:latest
+    container_name: assignment-ai
+    ports:
+      - ":5001"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+      - ./ai-service/prompt_templates:/app/prompt_templates
+    networks:
+      - assignment-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    restart: unless-stopped
+
+  automation:
+    build: ./automation
+    image: tonykenga405/assignment-automation:latest
+    container_name: assignment-auto
+    ports:
+      - ":5002"
+      - "5900:5900"
+    env_file:
+      - .env
+    volumes:
+      - ./data/downloads:/app/downloads
+      - ./data/uploads:/app/uploads
+    networks:
+      - assignment-network
+    depends_on:
+      - ai-service
+    restart: unless-stopped
+
+  file-manager:
+    build: ./file-manager
+    image: tonykenga405/assignment-file-manager:latest
+    container_name: assignment-files
+    volumes:
+      - ./data:/app/data
+    networks:
+      - assignment-network
+    depends_on:
+      - automation
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    image: tonykenga405/assignment-frontend:latest
+    container_name: assignment-ui
+    ports:
+      - ":3000"
+    networks:
+      - assignment-network
+    depends_on:
+      - ai-service
+      - file-manager
+    restart: unless-stopped
+
+networks:
+  assignment-network:
+    driver: bridge
