@@ -7,10 +7,10 @@
 Docker-based system that automates KCA university assignments using AI.
 
 ## Architecture
-- **AI Service**: DeepSeek/ChatGPT integration for answer generation (Tony)
-- **Automation**: Browser automation for KCA portal (Friend)
-- **File Manager**: Handles downloads/uploads and conversion (Friend)
-- **Frontend**: Dashboard for monitoring (Friend)
+- **AI Service**: DeepSeek/ChatGPT integration for answer generation (Tony405-spec)
+- **Automation**: Browser automation for portal (cyberghost)
+- **File Manager**: Handles downloads/uploads and conversion (cyberghost)
+- **Frontend**: Dashboard for monitoring (cyberghost)
 
 ## Quick Start
 1. Clone this repo
