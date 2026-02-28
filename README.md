@@ -19,10 +19,10 @@ Docker-based system that automates KCA university assignments using AI.
 4. Access dashboard at http://localhost:3000
 
 ## Docker Images
-- AI Service: 	onykenga405/assignment-ai-service:latest
-- Automation: 	onykenga405/assignment-automation:latest
-- File Manager: 	onykenga405/assignment-file-manager:latest
-- Frontend: 	onykenga405/assignment-frontend:latest
+- AI Service: 	tonykenga405/assignment-ai-service:latest
+- Automation: 	tonykenga405/assignment-automation:latest
+- File Manager: 	tonykenga405/assignment-file-manager:latest
+- Frontend: 	tonykenga405/assignment-frontend:latest
 
 ## Development
 - Branch: feature/* → develop → main
